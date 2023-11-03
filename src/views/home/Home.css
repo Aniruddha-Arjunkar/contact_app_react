@@ -1,3 +1,7 @@
+/* body{
+    overflow-y:hidden;
+} */
+
 .app_title{
     text-align: center;
     font-size: 7vh;
@@ -15,16 +19,45 @@
     border: 2px solid black;
     padding: 6px;
     width: 500px;
+    height: 480px;
     margin-bottom: 3vh;
     margin-top: 3vh;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
 }
 
+.Saved_contact_container::-webkit-scrollbar{
+    display: none;
+}
 
 .add_contact_container{
-    border: 2px solid black;
+    border: 5px solid black;
     padding: 6px;
     width: 500px;
+    height: fit-content;
     margin-top: 3vh;
     margin-bottom: 3vh;
+    border-radius: 1vh;
 
 }
+
+.user_input{
+    display: block;
+    margin: 4vh auto;
+    font-size: 28px;
+    padding:1vh;
+    width: 75%;
+    border-radius: 1vh;
+}
+
+.add_contact_button{
+    font-size: 3vh;
+    padding: 2vh 5vh;
+    font-weight: bold;
+    border-radius: 2vh;
+    border: none;
+    margin: 4vh 26%;
+    cursor: pointer;
+    box-shadow: 3px 3px 4px #bdbaba;
+}
+
