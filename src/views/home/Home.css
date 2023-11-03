@@ -1,0 +1,30 @@
+.app_title{
+    text-align: center;
+    font-size: 7vh;
+}
+
+.app_body{
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+    margin: 10vh 0;
+    flex-wrap: wrap;
+}
+
+.Saved_contact_container{
+    border: 2px solid black;
+    padding: 6px;
+    width: 500px;
+    margin-bottom: 3vh;
+    margin-top: 3vh;
+}
+
+
+.add_contact_container{
+    border: 2px solid black;
+    padding: 6px;
+    width: 500px;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+
+}
