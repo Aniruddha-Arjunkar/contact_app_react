@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from "react";
 import "./Home.css";
-import Contactcard from './../../components/contactcard/contactcard'
+import Contactcard from './../../components/contactcard/contactcard';
+import showToast from 'crunchy-toast';
 
 
 function Home(){
@@ -19,12 +20,22 @@ function Home(){
     const [email,setEmail] = useState('');
      
     function SaveContact(){
+
+        if(!name || !number || !email){
+           showToast('ENTER INFO PROPERLY','alert',4000);
+           return;
+        }
+
         const objarr = {
             Name:name,
             PhoneNo:number,
             Email:email
         }
+
         setContacts([...contacts,objarr]);
+
+        showToast('CONTACT SAVED', 'success', 3000);
+
         setName('');
         setNumber('');
         setEmail('');
@@ -34,7 +45,10 @@ function Home(){
         <div>
             <h1 className="app_title">📞CONTACT APP</h1>
             <div className="app_body">
+
                 <div className="add_contact_container">
+                    <h2 className="sec_title">📝CREATE CONTACT</h2>
+                    
                  <form>
                     <input type="text" 
                     placeholder="NAME" className="user_input" 
@@ -42,7 +56,7 @@ function Home(){
                     value={name}>
                     </input>
                  
-                    <input type="text" 
+                    <input type="tel" 
                     placeholder="PHONE NUMBER" 
                     className="user_input"
                     onChange={(e)=>{setNumber(e.target.value)}}
@@ -63,6 +77,7 @@ function Home(){
                 </div>
               
                 <div className="Saved_contact_container">
+                    <h2 className="sec_title">📑SAVED CONTACTS</h2>
                       {
                         contacts.map((contact,index)=>{
                             return (<Contactcard key={index} 

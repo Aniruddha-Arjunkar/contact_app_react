@@ -5,6 +5,7 @@
 .app_title{
     text-align: center;
     font-size: 7vh;
+    text-shadow: 3px 3px 3px #bdbaba;
 }
 
 .app_body{
@@ -59,5 +60,9 @@
     margin: 4vh 26%;
     cursor: pointer;
     box-shadow: 3px 3px 4px #bdbaba;
+}
+
+.sec_title{
+    text-align: center;
 }
 
