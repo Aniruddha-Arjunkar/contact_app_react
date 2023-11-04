@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import "./Home.css";
 import Contactcard from './../../components/contactcard/contactcard';
 import showToast from 'crunchy-toast';
@@ -32,7 +32,10 @@ function Home(){
             Email:email
         }
 
-        setContacts([...contacts,objarr]);
+        const newcontacts = [...contacts,objarr];
+        setContacts(newcontacts);
+
+        saveToLocalStorage(newcontacts);
 
         showToast('CONTACT SAVED', 'success', 3000);
 
@@ -51,9 +54,25 @@ function Home(){
 
          contacts.splice(indexToDelete, 1);
           setContacts([...contacts]);
+          saveToLocalStorage(contacts);
           
         showToast('CONTACT DELETED SUCCESSFILLY','success',4000);
     }
+    
+    function saveToLocalStorage(contactData){
+        localStorage.setItem('contact',JSON.stringify(contactData));
+    }
+
+    function loadFromLocalStorage(){
+        const dataToLoad = JSON.parse(localStorage.getItem('contact'));
+        if(dataToLoad){
+            setContacts(dataToLoad);
+        }
+    }
+
+    useEffect(()=>{
+        loadFromLocalStorage();
+    },[])
 
     return(
         <div>
