@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React,{useState} from "react";
 import "./Home.css";
 import Contactcard from './../../components/contactcard/contactcard';
 import showToast from 'crunchy-toast';
@@ -22,7 +22,7 @@ function Home(){
     function SaveContact(){
 
         if(!name || !number || !email){
-           showToast('ENTER INFO PROPERLY','alert',4000);
+           showToast('EMPTY TEXT FIELD ','alert',4000);
            return;
         }
 
@@ -41,6 +41,20 @@ function Home(){
         setEmail('');
     }
 
+    function deleteContact(mobileNumber){
+        let indexToDelete = -1;
+        contacts.forEach((contactDetails,index)=>{
+            if(contactDetails.PhoneNo == mobileNumber){
+                indexToDelete = index;
+            }
+        })
+
+         contacts.splice(indexToDelete, 1);
+          setContacts([...contacts]);
+          
+        showToast('CONTACT DELETED SUCCESSFILLY','success',4000);
+    }
+
     return(
         <div>
             <h1 className="app_title">📞CONTACT APP</h1>
@@ -48,7 +62,7 @@ function Home(){
 
                 <div className="add_contact_container">
                     <h2 className="sec_title">📝CREATE CONTACT</h2>
-                    
+
                  <form>
                     <input type="text" 
                     placeholder="NAME" className="user_input" 
@@ -83,7 +97,8 @@ function Home(){
                             return (<Contactcard key={index} 
                                 Name={contact.Name} 
                                 PhoneNo={contact.PhoneNo}  
-                                email={contact.Email}/>);
+                                email={contact.Email}
+                                deleteContact={deleteContact}/>);
                         })
                       }
                 </div>

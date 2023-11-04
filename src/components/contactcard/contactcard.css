@@ -3,6 +3,7 @@
     padding: 5px;
     margin: 2vh;
     border-radius: 15px;
+    position: relative;
 }
 
 .m-2{
@@ -12,4 +13,14 @@
 .text{
     font-size: large;
     font-weight: bold;
+}
+
+.icon_delete_contact{
+    position: absolute;
+    right: 7px;
+    bottom: 6px;
+    border-radius: 20%;
+    border: 1px dashed #afaaaa;
+    padding: 1px;
+    cursor: pointer;
 }
