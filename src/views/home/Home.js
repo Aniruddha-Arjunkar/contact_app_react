@@ -155,19 +155,19 @@ function EditContact(){            //THIS FUNTION CALLED ON ONCKICK EVENT OF 'SA
                 </div>
               
                 <div className="Saved_contact_container ">
-                    <h2 className="saved_sec_title">📑SAVED CONTACTS</h2>        
-                      {
-                        contacts.map((contact,index)=>{
-                            return (<Contactcard 
-                                key={index} 
-                                Name={contact.Name} 
-                                PhoneNo={contact.PhoneNo}  
-                                email={contact.Email}
-                                deleteContact={deleteContact}
-                                enableEdting={enableEdting}
-                                index={index}/>);
-                        })
-                      }
+                    <h2 className="saved_sec_title">📑SAVED CONTACTS</h2>    
+                           {
+                               contacts.map((contact,index)=>{
+                                    return (<Contactcard 
+                                    key={index} 
+                                    Name={contact.Name} 
+                                    PhoneNo={contact.PhoneNo}  
+                                    email={contact.Email}
+                                    deleteContact={deleteContact}
+                                    enableEdting={enableEdting}
+                                    index={index}/>);
+                                })
+                            }
                 </div>
             </div>
         </div>

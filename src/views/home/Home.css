@@ -5,6 +5,10 @@ body{
     background-color: #355070;
 } 
 
+body::-webkit-scrollbar{
+    display: none;
+}
+
 .border_radius{
     border-radius: 50vh 96vh 60vh 40vh;
 }
@@ -24,12 +28,12 @@ body{
 
 .Saved_contact_container{
     padding: 6px;
-    width: 500px;
+    width: 520px;
     height: 480px;
-    margin-bottom: 3vh;
-    margin-top: 3vh;
     overflow-y: scroll;
     scroll-behavior: smooth;
+    margin-bottom: 3vh;
+    margin-top: 3vh;
     background-color: #ffe0cf;
     border-radius: 3vh;
 }
@@ -73,8 +77,8 @@ body{
 }
 
 .saved_sec_title{
-    text-align: center;
-    text-shadow: 0px 0px 2px #E88C76;
+     text-align: center;
+    text-shadow: 0px 0px 2px #E88C76;  
 }
 
 .add_sec_title{
