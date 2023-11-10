@@ -112,11 +112,11 @@ function EditContact(){            //THIS FUNTION CALLED ON ONCKICK EVENT OF 'SA
 
     return(
         <div>
-            <h1 className="app_title">📞CONTACT APP</h1>
+            <h1 className="app_title"><span className="title_icon">📞</span>CONTACT APP</h1>
             <div className="app_body">
 
-                <div className="add_contact_container">
-                    <h2 className="sec_title">
+                <div className="add_contact_container border_radius">
+                    <h2 className="add_sec_title">
                         {
                             isEditEnable ? '🖊️ EDIT CONTACT' : '📝CREATE CONTACT'
                         }</h2>
@@ -148,14 +148,14 @@ function EditContact(){            //THIS FUNTION CALLED ON ONCKICK EVENT OF 'SA
                         isEditEnable ? EditContact() : SaveContact();
                     }
                     }>
-                        {
-                            isEditEnable ? '  SAVE CHANGES  ' : 'ADD TO CONTACT'
-                        }</button>
+                    {
+                        isEditEnable ? '  SAVE CHANGES  ' : 'ADD TO CONTACT'
+                    }</button>
                  </form>
                 </div>
               
-                <div className="Saved_contact_container">
-                    <h2 className="sec_title">📑SAVED CONTACTS</h2>        
+                <div className="Saved_contact_container ">
+                    <h2 className="saved_sec_title">📑SAVED CONTACTS</h2>        
                       {
                         contacts.map((contact,index)=>{
                             return (<Contactcard 

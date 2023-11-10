@@ -1,9 +1,11 @@
 .contact_card{
-    border: 2px solid black;
+    border: 2px solid #6D597A;
     padding: 5px;
     margin: 2vh;
     border-radius: 15px;
     position: relative;
+    color: black;
+    background-color: white;
 }
 
 .m-2{
@@ -20,7 +22,7 @@
     right: 7px;
     bottom: 6px;
     border-radius: 20%;
-    border: 1px dashed #afaaaa;
+    border: 1px dashed #001a33;
     padding: 1px;
     cursor: pointer;
 }
@@ -30,7 +32,7 @@
     right: 40px;
     bottom: 6px;
     border-radius: 20%;
-    border: 1px dashed #afaaaa;
+    border: 1px dashed #001a33;
     padding: 1px;
     cursor: pointer;
 }

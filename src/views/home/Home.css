@@ -1,16 +1,21 @@
 body{
     margin: 0;
     padding: 0;
+    color:  #E88C76;
+    background-color: #355070;
 } 
+
+.border_radius{
+    border-radius: 50vh 96vh 60vh 40vh;
+}
 
 .app_title{
     text-align: center;
     font-size: 7vh;
-    text-shadow: 3px 3px 3px #bdbaba;
+    text-shadow: 0px 0px 2px #E88C76;
 }
 
 .app_body{
-    border: 1px solid black;
     display: flex;
     justify-content: space-around;
     margin: 10vh 0;
@@ -18,7 +23,6 @@ body{
 }
 
 .Saved_contact_container{
-    border: 2px solid black;
     padding: 6px;
     width: 500px;
     height: 480px;
@@ -26,6 +30,8 @@ body{
     margin-top: 3vh;
     overflow-y: scroll;
     scroll-behavior: smooth;
+    background-color: #ffe0cf;
+    border-radius: 3vh;
 }
 
 .Saved_contact_container::-webkit-scrollbar{
@@ -33,13 +39,13 @@ body{
 }
 
 .add_contact_container{
-    border: 5px solid black;
+    
     padding: 6px;
-    width: 350px;
+    width: 450px;
     height: fit-content;
     margin-top: 3vh;
     margin-bottom: 3vh;
-    border-radius: 1vh;
+    background-color: #ffe0cf;
 
 }
 
@@ -48,8 +54,9 @@ body{
     margin: 3vh auto;
     font-size: 22px;
     padding:1vh;
-    width: 75%;
+    width: 70%;
     border-radius: 1vh;
+    border: 2px solid #6D597A;
 }
 
 .add_contact_button{
@@ -60,10 +67,23 @@ body{
     border: none;
     margin: 4vh 17%;
     cursor: pointer;
-    box-shadow: 3px 3px 4px #bdbaba;
+    box-shadow: 3px 3px 3px  #8e7a9b;
+    background-color: #6D597A;
+    color: #EAAC8B;
 }
 
-.sec_title{
+.saved_sec_title{
     text-align: center;
+    text-shadow: 0px 0px 2px #E88C76;
+}
+
+.add_sec_title{
+    text-shadow: 0px 0px 2px #E88C76;
+    margin-left: 16%;
+    margin-bottom: 5%;
+}
+
+.title_icon{
+    text-shadow: 0px 0px 5px rgb(239, 84, 84);
 }
 
