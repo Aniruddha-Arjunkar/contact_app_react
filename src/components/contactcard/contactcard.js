@@ -1,6 +1,6 @@
 import "./contactcard.css";
 
-function Contactcard({Name,PhoneNo,email,deleteContact}){
+function Contactcard({Name,PhoneNo,email,deleteContact,enableEdting,index}){
     return(
         <div className="contact_card">
              <p className="m-2 text">🙍 {Name}</p>
@@ -10,6 +10,10 @@ function Contactcard({Name,PhoneNo,email,deleteContact}){
              onClick={()=>{
                 deleteContact(PhoneNo);
              }}>🗑️</span>
+             <span className="icon_edit_contact"
+             onClick={()=>{
+                enableEdting(index);
+             }}>🖊️</span>
         </div>
     );
 }

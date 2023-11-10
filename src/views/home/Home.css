@@ -1,6 +1,7 @@
-/* body{
-    overflow-y:hidden;
-} */
+body{
+    margin: 0;
+    padding: 0;
+} 
 
 .app_title{
     text-align: center;
@@ -53,11 +54,11 @@
 
 .add_contact_button{
     font-size: 3vh;
-    padding: 1vh 3vh;
+    padding: 3% 3vh;
     font-weight: bold;
     border-radius: 2vh;
     border: none;
-    margin: 3vh 21%;
+    margin: 4vh 17%;
     cursor: pointer;
     box-shadow: 3px 3px 4px #bdbaba;
 }

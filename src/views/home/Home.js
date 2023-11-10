@@ -5,7 +5,7 @@ import showToast from 'crunchy-toast';
 
 
 function Home(){
-    const [contacts,setContacts]=useState(
+    const [contacts,setContacts]=useState(            //VARIABLE TO SAVE CONTACT
         [
             {
                 Name:'Aniruddha Arjunkar',
@@ -18,15 +18,17 @@ function Home(){
     const [name,setName] = useState('');
     const [number,setNumber] = useState('');
     const [email,setEmail] = useState('');
+    const [isEditEnable,setIsEditEnble] = useState(false);
+    const [indexToEdit,setIndexToEdit] = useState(-1);
      
-    function SaveContact(){
+    function SaveContact(){                                   // SAVE CONTACT FUNCTION
 
-        if(!name || !number || !email){
+        if(!name || !number || !email){                        //INPUT FIELD SHOULD NOT BE EMPTY
            showToast('EMPTY TEXT FIELD ','alert',4000);
-           return;
+           return; 
         }
 
-        const objarr = {
+        const objarr = {                                      //CREATING A NEW OBJECT
             Name:name,
             PhoneNo:number,
             Email:email
@@ -44,7 +46,7 @@ function Home(){
         setEmail('');
     }
 
-    function deleteContact(mobileNumber){
+    function deleteContact(mobileNumber){                      //DELETE CONTACT FUNTION
         let indexToDelete = -1;
         contacts.forEach((contactDetails,index)=>{
             if(contactDetails.PhoneNo == mobileNumber){
@@ -59,16 +61,50 @@ function Home(){
         showToast('CONTACT DELETED SUCCESSFILLY','success',4000);
     }
     
-    function saveToLocalStorage(contactData){
+    function saveToLocalStorage(contactData){                             //SAVIND DATA IN LOCAL STORAGE
         localStorage.setItem('contact',JSON.stringify(contactData));
     }
 
-    function loadFromLocalStorage(){
+    function loadFromLocalStorage(){                                      //RETRIVING DATA FROM LOCAL STORAGE
         const dataToLoad = JSON.parse(localStorage.getItem('contact'));
         if(dataToLoad){
             setContacts(dataToLoad);
         }
     }
+
+function enableEdting(index){                            //THIS FUNCTION WILL CALLED ON ONCLICK EVENT OF EDIT BUTTON 
+                                                         // IN CARD AND SHOW CONTACT DETAILS IN INPUT BOX
+        const contactdetails = contacts[index];
+        setName(contactdetails.Name);
+        setNumber(contactdetails.PhoneNo);
+        setEmail(contactdetails.Email);
+
+        setIsEditEnble(true);
+        setIndexToEdit(index);
+
+    }
+
+function EditContact(){            //THIS FUNTION CALLED ON ONCKICK EVENT OF 'SAVE CHANGES'                                 // BUTTON TO EDIT CONTACT DETAILS IN CARD AND LOCAL STORAGE
+    const obj = {
+        Name:name,
+        PhoneNo:number,
+        Email:email
+    }
+
+    contacts[indexToEdit] = obj;
+
+    setContacts([...contacts]);
+
+    saveToLocalStorage(contacts);
+
+    showToast('CONTACT EDITED SUCCESSFULLY','success',3000);
+
+    setName('');
+    setNumber('');
+    setEmail('');
+
+    setIsEditEnble(false);
+}
 
     useEffect(()=>{
         loadFromLocalStorage();
@@ -80,7 +116,10 @@ function Home(){
             <div className="app_body">
 
                 <div className="add_contact_container">
-                    <h2 className="sec_title">📝CREATE CONTACT</h2>
+                    <h2 className="sec_title">
+                        {
+                            isEditEnable ? '🖊️ EDIT CONTACT' : '📝CREATE CONTACT'
+                        }</h2>
 
                  <form>
                     <input type="text" 
@@ -105,19 +144,28 @@ function Home(){
 
                     <button type="button" 
                     className="add_contact_button" 
-                    onClick={SaveContact}>ADD CONTACT</button>
+                    onClick={()=>{
+                        isEditEnable ? EditContact() : SaveContact();
+                    }
+                    }>
+                        {
+                            isEditEnable ? '  SAVE CHANGES  ' : 'ADD TO CONTACT'
+                        }</button>
                  </form>
                 </div>
               
                 <div className="Saved_contact_container">
-                    <h2 className="sec_title">📑SAVED CONTACTS</h2>
+                    <h2 className="sec_title">📑SAVED CONTACTS</h2>        
                       {
                         contacts.map((contact,index)=>{
-                            return (<Contactcard key={index} 
+                            return (<Contactcard 
+                                key={index} 
                                 Name={contact.Name} 
                                 PhoneNo={contact.PhoneNo}  
                                 email={contact.Email}
-                                deleteContact={deleteContact}/>);
+                                deleteContact={deleteContact}
+                                enableEdting={enableEdting}
+                                index={index}/>);
                         })
                       }
                 </div>
